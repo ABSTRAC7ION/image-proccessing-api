@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "ES6"
+    ],
+    "outDir": "./build",
+    "strict": true,
+    "noImplicitAny": true,
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules",
+    "./dist",
+    "spec"
+  ]
+}
