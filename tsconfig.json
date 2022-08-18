@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ES5",
     "lib": [
-      "ES6"
+      "ES2018",
+      "DOM"
     ],
+    "module": "commonjs",
+    "jsx": "preserve",
+    "allowUmdGlobalAccess": true,
     "outDir": "./build",
+    "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": true,
-    "types": [
-      "node"
-    ],
-    "allowSyntheticDefaultImports": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": [
     "node_modules",
-    "./dist",
+    "tests",
     "spec"
   ]
 }

@@ -1,39 +1,43 @@
 {
   "name": "image-api",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
+  "description": "This project was created by Ibrahim for Udacity",
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
     "start": "nodemon build/.",
     "jasmine": "jasmine",
-    "test": "npm run build && npm run jasmine"
+    "test": "npm run build && npm run jasmine",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
+    "lint": "eslint **/*.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node", "typescript"],
+  "author": "Ibrahim",
   "license": "ISC",
   "devDependencies": {
-    "@types/jasmine": "^3.10.2",
+    "@types/eslint": "^8.4.5",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^4.0.3",
     "@types/node": "^18.7.1",
+    "@types/sharp": "^0.30.5",
     "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "fs": "^0.0.1-security",
+    "jasmine": "^4.3.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7",
     "prettier": "^2.7.1",
+    "supertest": "^6.2.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@types/express": "^4.17.13",
-    "@types/sharp": "^0.30.5",
+    "commonjs": "^0.0.1",
     "express": "^4.18.1",
-    "fs": "^0.0.1-security",
-    "jasmine": "^3.10.0",
-    "jasmine-spec-reporter": "^6.0.0",
-    "nodemon": "^2.0.19",
-    "path": "^0.12.7",
-    "sharp": "^0.30.7",
-    "supertest": "^6.2.4"
+    "sharp": "^0.30.7"
   }
 }
