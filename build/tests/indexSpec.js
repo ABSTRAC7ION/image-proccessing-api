@@ -72,22 +72,12 @@ describe('I- test my working endpoint', function () {
 describe("II- Tests application's functionality", function () {
     it('1. tests the availability of the thumbnail image in the thumb folder', function () {
         expect(index_1.default.get('/images', function (req) {
-            return fs_1.default.readdirSync("./assets/thumb/".concat(req.query.filename, "_thumb") +
-                '_' +
-                req.query.width +
-                'x' +
-                req.query.height +
-                '.jpg');
+            return fs_1.default.readdirSync("./assets/thumb/".concat(req.query.filename, "_thumb") + '_' + req.query.width + 'x' + req.query.height + '.jpg');
         })).toBeTruthy();
     });
     it('2. tests the resizing of the thumbnail image', function () {
         index_1.default.get('/images', function testImg(req) {
-            var thumbProps = fs_1.default.statSync("./assets/thumb/".concat(req.query.filename, "_thumb") +
-                '-' +
-                req.query.width +
-                'x' +
-                req.query.height +
-                '.jpg');
+            var thumbProps = fs_1.default.statSync("./assets/thumb/".concat(req.query.filename, "_thumb") + '-' + req.query.width + 'x' + req.query.height + '.jpg');
             var thumbSize = thumbProps.size;
             var imgProps = fs_1.default.statSync("./assets/images/".concat(req.query.filename, ".jpg"));
             var imgSize = imgProps.size;

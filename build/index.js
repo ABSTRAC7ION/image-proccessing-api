@@ -46,39 +46,30 @@ var sharpFunc_js_1 = require("./utilities/sharpFunc.js");
 var paramCheck_js_1 = require("./utilities/paramCheck.js");
 var app = (0, express_1.default)();
 var port = 3000;
-app.get("/", function (req, res) {
+app.get('/', function (_req, res) {
     res.status(200).json({
-        "in order to proccess an image change the url to the following structure": "/images?filename=image_name&width=width&height=height",
+        'in order to proccess an image change the url to the following structure': '/images?filename=image_name&width=width&height=height',
     });
 });
-app.get("/images", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+app.get('/images', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filename, width, height, outputname_1;
     return __generator(this, function (_a) {
         //checks if all paramteres are given in the url
-        if (req.query &&
-            req.query.filename &&
-            req.query.width &&
-            req.query.height) {
+        if (req.query && req.query.filename && req.query.width && req.query.height) {
             if (isNaN(Number(req.query.width)) || isNaN(Number(req.query.height))) {
-                res.status(400).json("please enter a valid number in the width and height parameters");
+                res.status(400).json('please enter a valid number in the width and height parameters');
             }
             else {
-                filename = req.query.filename + ".jpg";
+                filename = req.query.filename + '.jpg';
                 width = +req.query.width;
                 height = +req.query.height;
-                outputname_1 = req.query.filename +
-                    "_thumb" +
-                    "_" +
-                    width +
-                    "x" +
-                    height +
-                    ".jpg";
+                outputname_1 = req.query.filename + '_thumb' + '_' + width + 'x' + height + '.jpg';
                 if ((0, paramCheck_js_1.check)(filename, width, height) === true) {
                     //checks if thumb exists for image
                     if (fs_1.default.existsSync("./assets/thumb/".concat(outputname_1))) {
                         //if yes
                         res.sendFile(path_1.default.resolve("assets/thumb/".concat(outputname_1)));
-                        console.log("thumb already created for this file");
+                        console.log('thumb already created for this file');
                     }
                     else {
                         //if no creates one
@@ -89,7 +80,7 @@ app.get("/images", function (req, res) { return __awaiter(void 0, void 0, void 0
                     }
                 }
                 else {
-                    res.status(400).json("invalid or missing url parameters");
+                    res.status(400).json('invalid or missing url parameters');
                 }
             }
         }
