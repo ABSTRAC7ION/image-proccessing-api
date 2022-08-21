@@ -43,6 +43,7 @@ var index_1 = __importDefault(require("../index"));
 var fs_1 = __importDefault(require("fs"));
 var supertest_1 = __importDefault(require("supertest"));
 var request = (0, supertest_1.default)(index_1.default);
+var sharpFunc_js_1 = require("../utilities/sharpFunc.js");
 describe('I- test my working endpoint', function () {
     it('1. tests the api endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
@@ -83,5 +84,21 @@ describe("II- Tests application's functionality", function () {
             var imgSize = imgProps.size;
             expect(imgSize).toBeGreaterThan(thumbSize);
         });
+    });
+    it('3. tests image resizing', function () {
+        var testFilePath = 'fjord' + '.jpg';
+        var testWidth = 600;
+        var testHeight = 600;
+        var testThumbPath = 'fjord' + '_thumb' + '_' + testWidth + 'x' + testHeight + '.jpg';
+        expect(function () { return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, (0, sharpFunc_js_1.crop)(testFilePath, testWidth, testHeight, testThumbPath)];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); }).not.toThrow();
     });
 });

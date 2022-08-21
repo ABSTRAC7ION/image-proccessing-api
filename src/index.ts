@@ -7,7 +7,7 @@ import { check } from './utilities/paramCheck.js';
 const app = express();
 const port = 3000;
 
-app.get('/', (_req: unknown, res): void => {
+app.get('/', (req: express.Request, res: express.Response): void => {
   res.status(200).json({
     'in order to proccess an image change the url to the following structure':
       '/images?filename=image_name&width=width&height=height',

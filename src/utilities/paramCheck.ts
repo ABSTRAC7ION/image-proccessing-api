@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export function check(filename: string, width: any, height: any): boolean {
+export function check(filename: string, width: number, height: number): boolean {
   if (!fs.existsSync(`assets/full/${filename}`)) {
     return false;
   }

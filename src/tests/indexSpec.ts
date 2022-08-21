@@ -3,6 +3,7 @@ import fs from 'fs';
 import supertest from 'supertest';
 import { Request } from 'express';
 const request = supertest(app);
+import { crop } from '../utilities/sharpFunc.js';
 
 describe('I- test my working endpoint', (): void => {
   it('1. tests the api endpoint', async (): Promise<void> => {
@@ -15,7 +16,7 @@ describe('I- test my working endpoint', (): void => {
   });
 });
 
-describe("II- Tests application's image resizing", (): void => {
+describe("II- Tests application's functionality", (): void => {
   it('1. tests the availability of the thumbnail image in the thumb folder', () => {
     expect(
       app.get('/images', (req: Request): string[] =>
@@ -35,5 +36,14 @@ describe("II- Tests application's image resizing", (): void => {
       const imgSize: number = imgProps.size;
       expect(imgSize).toBeGreaterThan(thumbSize);
     });
+  });
+  it('3. tests image resizing', (): void => {
+    const testFilePath = 'fjord' + '.jpg';
+    const testWidth = 600;
+    const testHeight = 600;
+    const testThumbPath = 'fjord' + '_thumb' + '_' + testWidth + 'x' + testHeight + '.jpg';
+    expect(async () => {
+      await crop(testFilePath, testWidth, testHeight, testThumbPath);
+    }).not.toThrow();
   });
 });

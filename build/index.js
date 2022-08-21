@@ -46,7 +46,7 @@ var sharpFunc_js_1 = require("./utilities/sharpFunc.js");
 var paramCheck_js_1 = require("./utilities/paramCheck.js");
 var app = (0, express_1.default)();
 var port = 3000;
-app.get('/', function (_req, res) {
+app.get('/', function (req, res) {
     res.status(200).json({
         'in order to proccess an image change the url to the following structure': '/images?filename=image_name&width=width&height=height',
     });
