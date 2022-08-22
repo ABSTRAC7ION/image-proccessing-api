@@ -20,10 +20,10 @@ app.get('/images', async (req: { query: { filename: string; width: number; heigh
     if (isNaN(Number(req.query.width)) || isNaN(Number(req.query.height))) {
       res.status(400).json('please enter a valid number in the width and height parameters');
     } else {
-      const filename: string = (req.query as any).filename + '.jpg';
-      const width: number = +(req.query as any).width;
-      const height: number = +(req.query as any).height;
-      const outputname: string = (req.query as any).filename + '_thumb' + '_' + width + 'x' + height + '.jpg';
+      const filename: string = req.query.filename + '.jpg';
+      const width: number = +req.query.width;
+      const height: number = +req.query.height;
+      const outputname: string = req.query.filename + '_thumb' + '_' + width + 'x' + height + '.jpg';
 
       if (check(filename, width, height) === true) {
         //checks if thumb exists for image
