@@ -14,7 +14,7 @@ app.get('/', (req: express.Request, res: express.Response): void => {
   });
 });
 
-app.get('/images', async (req: { query: { filename: string; width: number; height: number } }, res) => {
+app.get('/images', async (req: express.Request, res: express.Response): Promise<void> => {
   //checks if all paramteres are given in the url
   if (req.query && req.query.filename && req.query.width && req.query.height) {
     if (isNaN(Number(req.query.width)) || isNaN(Number(req.query.height))) {
